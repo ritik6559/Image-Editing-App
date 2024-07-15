@@ -32,8 +32,13 @@ class _EditImageScreenState extends EditImageViewmodel {
                   left: texts[i].left,
                   top: texts[i].left,
                   child: GestureDetector(
-                    onLongPress: () {},
-                    onTap: () => setCurrentIndex(context,i),
+                    onLongPress: () {
+                      setState(() {
+                        currentIndex = i;
+                        deleteText(context);
+                      });
+                    },
+                    onTap: () => setCurrentIndex(context, i),
                     child: Draggable(
                       feedback: ImageText(textInfo: texts[i]),
                       child: ImageText(textInfo: texts[i]),
@@ -149,7 +154,7 @@ class _EditImageScreenState extends EditImageViewmodel {
                   Icons.space_bar,
                   color: Colors.black,
                 ),
-                onPressed: () {},
+                onPressed: addLinesToText,
                 tooltip: 'Add New Line',
               ),
               Tooltip(
@@ -191,7 +196,7 @@ class _EditImageScreenState extends EditImageViewmodel {
               Tooltip(
                 message: 'Blue',
                 child: GestureDetector(
-                  onTap: ()=> changeTextColor(Colors.blue),
+                  onTap: () => changeTextColor(Colors.blue),
                   child: const CircleAvatar(
                     backgroundColor: Colors.blue,
                   ),
