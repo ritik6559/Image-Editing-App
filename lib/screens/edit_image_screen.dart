@@ -23,7 +23,7 @@ class _EditImageScreenState extends EditImageViewmodel {
       floatingActionButton: _addNewTextFab,
       body: SafeArea(
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.7,
+          height: MediaQuery.of(context).size.height ,
           child: Stack(
             children: [
               _selectedImage,
@@ -81,76 +81,164 @@ class _EditImageScreenState extends EditImageViewmodel {
             scrollDirection: Axis.horizontal,
             children: [
               IconButton(
-              icon: const Icon(
-                Icons.save,
-                color: Colors.black,
+                icon: const Icon(
+                  Icons.save,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+                tooltip: 'Save Image',
               ),
-              onPressed: (){},
-              tooltip: 'Save Image',
+              IconButton(
+                icon: const Icon(
+                  Icons.add,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+                tooltip: 'Increase font size',
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.remove,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+                tooltip: 'Decrease font size',
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.format_align_left,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+                tooltip: 'Align left',
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.format_align_center,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+                tooltip: 'Align Center',
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.format_align_right,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+                tooltip: 'Align Right',
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.format_bold,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+                tooltip: 'Bold',
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.format_italic,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+                tooltip: 'Italic',
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.space_bar,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+                tooltip: 'Add New Line',
+              ),
+              Tooltip(
+              message: 'Red',
+              child: GestureDetector(
+                  onTap: (){},
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.red,
+                  )),
             ),
-            IconButton(
-              icon: const Icon(
-                Icons.add,
-                color: Colors.black,
-              ),
-              onPressed: (){},
-              tooltip: 'Increase font size',
+            const SizedBox(
+              width: 5,
             ),
-            IconButton(
-              icon: const Icon(
-                Icons.remove,
-                color: Colors.black,
-              ),
-              onPressed: (){},
-              tooltip: 'Decrease font size',
+            Tooltip(
+              message: 'White',
+              child: GestureDetector(
+                  onTap: () {},
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.white,
+                  )),
             ),
-            IconButton(
-              icon: const Icon(
-                Icons.format_align_left,
-                color: Colors.black,
-              ),
-              onPressed: (){},
-              tooltip: 'Align left',
+            const SizedBox(
+              width: 5,
             ),
-            IconButton(
-              icon: const Icon(
-                Icons.format_align_center,
-                color: Colors.black,
-              ),
-              onPressed: (){},
-              tooltip: 'Align Center',
+            Tooltip(
+              message: 'Black',
+              child: GestureDetector(
+                  onTap: (){},
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.black,
+                  )),
             ),
-            IconButton(
-              icon: const Icon(
-                Icons.format_align_right,
-                color: Colors.black,
-              ),
-              onPressed: (){},
-              tooltip: 'Align Right',
+            const SizedBox(
+              width: 5,
             ),
-            IconButton(
-              icon: const Icon(
-                Icons.format_bold,
-                color: Colors.black,
-              ),
-              onPressed: (){},
-              tooltip: 'Bold',
+            Tooltip(
+              message: 'Blue',
+              child: GestureDetector(
+                  onTap: (){},
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.blue,
+                  )),
             ),
-            IconButton(
-              icon: const Icon(
-                Icons.format_italic,
-                color: Colors.black,
-              ),
-              onPressed: (){},
-              tooltip: 'Italic',
+            const SizedBox(
+              width: 5,
             ),
-            IconButton(
-              icon: const Icon(
-                Icons.space_bar,
-                color: Colors.black,
-              ),
-              onPressed: (){},
-              tooltip: 'Add New Line',
+            Tooltip(
+              message: 'Yellow',
+              child: GestureDetector(
+                  onTap: (){},
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.yellow,
+                  )),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Tooltip(
+              message: 'Green',
+              child: GestureDetector(
+                  onTap: (){},
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.green,
+                  )),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Tooltip(
+              message: 'Orange',
+              child: GestureDetector(
+                  onTap: () {},
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.orange,
+                  )),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Tooltip(
+              message: 'Pink',
+              child: GestureDetector(
+                  onTap: (){},
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.pink,
+                  )),
+            ),
+            const SizedBox(
+              width: 5,
             ),
             ],
           ),
