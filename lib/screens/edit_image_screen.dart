@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class EditImageScreen extends StatefulWidget {
@@ -14,6 +16,12 @@ class EditImageScreen extends StatefulWidget {
 class _EditImageScreenState extends State<EditImageScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Image.file(
+        File(
+          widget.selectedImage,
+        ),
+      ),
+    );
   }
 }
