@@ -1,14 +1,48 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:image_editing_app/models/text_info.dart';
 import 'package:image_editing_app/screens/edit_image_screen.dart';
+import 'package:image_editing_app/utils/utils.dart';
 import 'package:image_editing_app/widgets/default_button.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:screenshot/screenshot.dart';
 
 abstract class EditImageViewmodel extends State<EditImageScreen> {
   TextEditingController controller = TextEditingController();
   TextEditingController creatorText = TextEditingController();
+  ScreenshotController screenshotController = ScreenshotController();
+
   int currentIndex = 0;
 
   List<TextInfo> texts = [];
+
+  saveToGallery(BuildContext context) {
+    if (texts.isNotEmpty) {
+      screenshotController.capture().then((Uint8List? image) {
+        saveImage(image!);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Image saved"),
+          ),
+        );
+      }).catchError((err) => print(err));
+    }
+  }
+
+  saveImage(Uint8List image) async {
+    final time = DateTime.now()
+        .toIso8601String()
+        .replaceAll('.', '-')
+        .replaceAll(':', '-');
+    final name = "screenshot_$time"; //creating a unique image name
+
+    await requestPermission(
+        Permission.storage); //asking for permission from user.
+    await ImageGallerySaver.saveImage(image,
+        name: name); //saving image to gallery.
+  }
 
   setCurrentIndex(BuildContext context, int index) {
     setState(() {
