@@ -6,8 +6,31 @@ import 'package:image_editing_app/widgets/default_button.dart';
 abstract class EditImageViewmodel extends State<EditImageScreen> {
   TextEditingController controller = TextEditingController();
   TextEditingController creatorText = TextEditingController();
+  int currentIndex = 0;
 
   List<TextInfo> texts = [];
+
+  setCurrentIndex(BuildContext context, int index) {
+    setState(() {
+      currentIndex = index;
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+          "Selected for styling",
+          style: TextStyle(
+            fontSize: 16,
+          ),
+        ),
+      ),
+    );
+  }
+
+  changeTextColor(Color color) {
+    setState(() {
+      texts[currentIndex].color = color;
+    });
+  }
 
   addNewText(BuildContext context) {
     setState(() {

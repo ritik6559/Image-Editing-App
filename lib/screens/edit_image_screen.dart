@@ -23,7 +23,7 @@ class _EditImageScreenState extends EditImageViewmodel {
       floatingActionButton: _addNewTextFab,
       body: SafeArea(
         child: SizedBox(
-          height: MediaQuery.of(context).size.height ,
+          height: MediaQuery.of(context).size.height,
           child: Stack(
             children: [
               _selectedImage,
@@ -33,7 +33,7 @@ class _EditImageScreenState extends EditImageViewmodel {
                   top: texts[i].left,
                   child: GestureDetector(
                     onLongPress: () {},
-                    onTap: () {},
+                    onTap: () => setCurrentIndex(context,i),
                     child: Draggable(
                       feedback: ImageText(textInfo: texts[i]),
                       child: ImageText(textInfo: texts[i]),
@@ -42,7 +42,7 @@ class _EditImageScreenState extends EditImageViewmodel {
                             context.findRenderObject() as RenderBox;
                         Offset off = renderBox.globalToLocal(drag.offset);
                         setState(() {
-                          texts[i].top = off.dy;
+                          texts[i].top = off.dy - 96;
                           texts[i].left = off.dx;
                         });
                       },
@@ -73,7 +73,7 @@ class _EditImageScreenState extends EditImageViewmodel {
   }
 
   AppBar get _appBar => AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey.shade200,
         automaticallyImplyLeading: false,
         title: SizedBox(
           height: 50,
@@ -153,93 +153,101 @@ class _EditImageScreenState extends EditImageViewmodel {
                 tooltip: 'Add New Line',
               ),
               Tooltip(
-              message: 'Red',
-              child: GestureDetector(
-                  onTap: (){},
+                message: 'Red',
+                child: GestureDetector(
+                  onTap: () => changeTextColor(Colors.red),
                   child: const CircleAvatar(
                     backgroundColor: Colors.red,
-                  )),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Tooltip(
-              message: 'White',
-              child: GestureDetector(
-                  onTap: () {},
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Tooltip(
+                message: 'White',
+                child: GestureDetector(
+                  onTap: () => changeTextColor(Colors.white),
                   child: const CircleAvatar(
                     backgroundColor: Colors.white,
-                  )),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Tooltip(
-              message: 'Black',
-              child: GestureDetector(
-                  onTap: (){},
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Tooltip(
+                message: 'Black',
+                child: GestureDetector(
+                  onTap: () => changeTextColor(Colors.black),
                   child: const CircleAvatar(
                     backgroundColor: Colors.black,
-                  )),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Tooltip(
-              message: 'Blue',
-              child: GestureDetector(
-                  onTap: (){},
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Tooltip(
+                message: 'Blue',
+                child: GestureDetector(
+                  onTap: ()=> changeTextColor(Colors.blue),
                   child: const CircleAvatar(
                     backgroundColor: Colors.blue,
-                  )),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Tooltip(
-              message: 'Yellow',
-              child: GestureDetector(
-                  onTap: (){},
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Tooltip(
+                message: 'Yellow',
+                child: GestureDetector(
+                  onTap: () => changeTextColor(Colors.yellow),
                   child: const CircleAvatar(
                     backgroundColor: Colors.yellow,
-                  )),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Tooltip(
-              message: 'Green',
-              child: GestureDetector(
-                  onTap: (){},
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Tooltip(
+                message: 'Green',
+                child: GestureDetector(
+                  onTap: () => changeTextColor(Colors.green),
                   child: const CircleAvatar(
                     backgroundColor: Colors.green,
-                  )),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Tooltip(
-              message: 'Orange',
-              child: GestureDetector(
-                  onTap: () {},
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Tooltip(
+                message: 'Orange',
+                child: GestureDetector(
+                  onTap: () => changeTextColor(Colors.orange),
                   child: const CircleAvatar(
                     backgroundColor: Colors.orange,
-                  )),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Tooltip(
-              message: 'Pink',
-              child: GestureDetector(
-                  onTap: (){},
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Tooltip(
+                message: 'Pink',
+                child: GestureDetector(
+                  onTap: () => changeTextColor(Colors.pink),
                   child: const CircleAvatar(
                     backgroundColor: Colors.pink,
-                  )),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
             ],
           ),
         ),
