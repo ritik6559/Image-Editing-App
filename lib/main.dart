@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       title: 'Image Editor',
-      
-      home:  HomeScreen(),
+      theme: ThemeData.light(),
+      home:  const HomeScreen(),
     );
   }
 }

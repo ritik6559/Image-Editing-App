@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,8 +9,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: IconButton(
-          onPressed: () {},
-          icon: Icon(
+          onPressed: () async {
+            XFile? file = await ImagePicker().pickImage(source: ImageSource.gallery,);
+            if(file != null){}
+          },
+          icon: const Icon(
             Icons.upload_file,
           ),
         ),
