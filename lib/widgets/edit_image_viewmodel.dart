@@ -5,6 +5,7 @@ import 'package:image_editing_app/widgets/default_button.dart';
 
 abstract class EditImageViewmodel extends State<EditImageScreen> {
   TextEditingController controller = TextEditingController();
+  TextEditingController creatorText = TextEditingController();
 
   List<TextInfo> texts = [];
 
